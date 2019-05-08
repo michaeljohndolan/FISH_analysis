@@ -7,8 +7,10 @@
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f0\b\fs24 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 Protocol for unprocessed identification of Fcrls cells: 
-\b0 \ulnone \
+\ul \ulc2 Protocol for unprocessed identification of Fcrls cells: \
+\
+Note: \ulnone Ensure image names match the format: DateOfExp_brain#_slice#_tile#_fcrls_ccl3.nd2
+\b0 \
 
 \fs36 0. Directory structure: \
 	a. Main directory with macros and code \
@@ -18,12 +20,12 @@
 \
 1. In the raw data, using Fiji\'92s square selection and clear/clear outside commands, crop out regions outside the brain, hairs, over saturated pixels and other aberrations in the original file. \
 2. Save this as a tif, Prefixed with cropped (cropped_201903etc) in the raw data folder. \
-3. Split the channels and save in the appropriate directories (eg. Ccl3/ and Fcrls/) in the TestData directory  \
-4. If not already done, create a ilp project and train classifier on the TestData \
-5.  \cf2 Open eg. Fcrls_hemi.ilp and use the trained algorithm to identify cells in TestData\cf2 . Run Ilastik batch mode to create simple segmentations and tifs. Save these in Segmentation directory. \
+3. Split the channels in cropped files and save in the appropriate directories (eg. Ccl3/ and Fcrls/) in the TestData subdirectory  \
+4. If not already done, create a ilp project and train a classifier on the TestData \
+5.  Open eg. Fcrls_hemi.ilp and use the trained algorithm to identify cells in TestData. Run Ilastik batch mode to create simple segmentations and tifs. Save these in Segmentation directory. \
 6. Run Ilastik on all channel directories. \
 5. Run the \'93simple_segmentation_postprocess.ijm\'94 ImageJ macro on the segmentations of each channel. This will save postprocessed and DISPLAY images (with artificially dilated cells for easy viewing) in the Output directory. \
-6. Open R and run overlap_analysis.R which will call the the overlap_analysis.ijm macro and extract colocalized cells and numbers. \
+6. Open R and run overlap_analysis.R which will call the the overlap_analysis.ijm macro and extract colocalized cells and numbers. May require some tweaking of code depending on the images. \
 \
 \
 \
